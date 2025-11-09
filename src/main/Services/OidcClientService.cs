@@ -29,7 +29,7 @@ namespace ei8.Cortex.Gps.Sender.Services
                 {
                     Authority = this.urlService.Authority,
                     ClientId = $"ei8.Cortex.Gps.Sender-{this.urlService.AvatarName}",
-                    Scope = "openid profile avatarapi",
+                    Scope = $"openid profile avatarapi-{this.urlService.AvatarName}",
                     RedirectUri = "ei8cortexgpssender://",
                     PostLogoutRedirectUri = "ei8cortexgpssender://",
                     ClientSecret = this.settingsService.ClientSecret,
