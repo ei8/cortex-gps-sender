@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Maui;
-using ei8.Cortex.Diary.Nucleus.Client.In;
+// TODO: using ei8.Cortex.Diary.Nucleus.Client.In;
 using ei8.Cortex.Gps.Sender.Services;
 using ei8.Cortex.Gps.Sender.ViewModels;
 using ei8.Cortex.Gps.Sender.ViewModels.Auth;
@@ -29,8 +29,8 @@ public static class MauiProgram
             rp.SetHttpClientHandler(new HttpClientHandler());
             return rp;
         });
-        builder.Services.AddSingleton<INeuronClient, HttpNeuronClient>();
-        builder.Services.AddSingleton<ITerminalClient, HttpTerminalClient>();
+        // TODO: builder.Services.AddSingleton<INeuronClient, HttpNeuronClient>();
+        //builder.Services.AddSingleton<ITerminalClient, HttpTerminalClient>();
 
         builder.Services.AddSingleton<IConnectivity>(Connectivity.Current);
         builder.Services.AddSingleton<ILocationService, LocationService>();

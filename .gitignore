@@ -2,3 +2,4 @@ global.json
 src/main/bin/**
 src/main/obj/**
 **.vsidx
+src/.vs/**

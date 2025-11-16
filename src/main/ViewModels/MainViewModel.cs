@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using System.Collections.ObjectModel;
-using ei8.Cortex.Diary.Nucleus.Client.In;
+// TODO: using ei8.Cortex.Diary.Nucleus.Client.In;
 using ei8.Cortex.Gps.Sender.Models;
 using IdentityModel.OidcClient;
 using IdentityModel.Client;
@@ -16,8 +16,8 @@ namespace ei8.Cortex.Gps.Sender.ViewModels
         private readonly ISettingsService settingsService;
         private readonly IUrlService urlService;
         private readonly ILocationService locationService;
-        private readonly INeuronClient neuronClient;
-        private readonly ITerminalClient terminalClient;
+        // TODO: private readonly INeuronClient neuronClient;
+        //private readonly ITerminalClient terminalClient;
         protected readonly IOidcClientService oidcClientService;
         protected readonly HttpClient httpClient;
         protected IConnectivity connectivity;
@@ -26,7 +26,7 @@ namespace ei8.Cortex.Gps.Sender.ViewModels
         [ObservableProperty]
         private bool _locationUpdatesEnabled;
 
-        public MainViewModel(ISettingsService settingsService, IUrlService urlService, ILocationService locationService, INeuronClient neuronClient, ITerminalClient terminalClient, IOidcClientService oidcClientService, HttpClient httpclient, IConnectivity connectivity, ITokenProviderService tokenProviderService)
+        public MainViewModel(ISettingsService settingsService, IUrlService urlService, ILocationService locationService, /* TODO: INeuronClient neuronClient, ITerminalClient terminalClient, */ IOidcClientService oidcClientService, HttpClient httpclient, IConnectivity connectivity, ITokenProviderService tokenProviderService)
         {
             this.settingsService = settingsService;
             this.urlService = urlService;
@@ -35,8 +35,8 @@ namespace ei8.Cortex.Gps.Sender.ViewModels
             this.connectivity = connectivity;
             Updates = new();
             this.locationService = locationService;
-            this.neuronClient = neuronClient;
-            this.terminalClient = terminalClient;
+            // TODO: this.neuronClient = neuronClient;
+            //this.terminalClient = terminalClient;
             this.tokenProviderService = tokenProviderService;
         }
 
@@ -63,26 +63,26 @@ namespace ei8.Cortex.Gps.Sender.ViewModels
                 string regionId = null;
                 try
                 {
-                    var task = Task.Run(async () => await this.neuronClient.CreateNeuron(
-                        this.urlService.AvatarUrl + "/",
-                        neuronId.ToString(),
-                        o.Latitude + ", " + o.Longitude,
-                        regionId,
-                        string.Empty,
-                        this.tokenProviderService.AccessToken
-                        ));
-                    task.GetAwaiter().GetResult();
-                    task = Task.Run(async () => await this.terminalClient.CreateTerminal(
-                        this.urlService.AvatarUrl + "/",
-                        Guid.NewGuid().ToString(),
-                        neuronId,
-                        this.settingsService.InstantiatesGpsNeuronId,
-                        neurUL.Cortex.Common.NeurotransmitterEffect.Excite,
-                        1f,
-                        string.Empty,
-                        this.tokenProviderService.AccessToken
-                        ));
-                    task.GetAwaiter().GetResult();
+                    // TODO: var task = Task.Run(async () => await this.neuronClient.CreateNeuron(
+                    //    this.urlService.AvatarUrl + "/",
+                    //    neuronId.ToString(),
+                    //    o.Latitude + ", " + o.Longitude,
+                    //    regionId,
+                    //    string.Empty,
+                    //    this.tokenProviderService.AccessToken
+                    //    ));
+                    //task.GetAwaiter().GetResult();
+                    //task = Task.Run(async () => await this.terminalClient.CreateTerminal(
+                    //    this.urlService.AvatarUrl + "/",
+                    //    Guid.NewGuid().ToString(),
+                    //    neuronId,
+                    //    this.settingsService.InstantiatesGpsNeuronId,
+                    //    neurUL.Cortex.Common.NeurotransmitterEffect.Excite,
+                    //    1f,
+                    //    string.Empty,
+                    //    this.tokenProviderService.AccessToken
+                    //    ));
+                    //task.GetAwaiter().GetResult();
                 }
                 catch (Exception ex)
                 {

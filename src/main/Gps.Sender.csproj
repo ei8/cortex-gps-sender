@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net8.0-android</TargetFrameworks>
+        <TargetFrameworks>net9.0-android</TargetFrameworks>
         <OutputType>Exe</OutputType>
         <RootNamespace>ei8.Cortex.Gps.Sender</RootNamespace>
         <UseMaui>true</UseMaui>
@@ -16,8 +16,8 @@
         <ApplicationIdGuid>490794b1-cc50-4047-b883-84e278c5dc95</ApplicationIdGuid>
 
         <!-- Versions -->
-        <ApplicationDisplayVersion>1.1</ApplicationDisplayVersion>
-        <ApplicationVersion>2</ApplicationVersion>
+        <ApplicationDisplayVersion>1.5</ApplicationDisplayVersion>
+        <ApplicationVersion>6</ApplicationVersion>
 
         <!--<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>-->
         <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
@@ -45,11 +45,11 @@
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
         <Compile Remove="Services\iOS\LocationService.cs" />
 
-        
+      <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.111" />
       <PackageReference Include="CommunityToolkit.Diagnostics" Version="8.0.0" />
       <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
       <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
-      <PackageReference Include="ei8.Cortex.Diary.Nucleus.Client" Version="0.2.4" />
+      <!-- TODO: <PackageReference Include="ei8.Cortex.Diary.Nucleus.Client" Version="0.2.4" />-->
       <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
       <PackageReference Include="neurUL.Common.Http" Version="0.1.15" />
     </ItemGroup>
